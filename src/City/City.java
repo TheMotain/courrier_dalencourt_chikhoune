@@ -42,7 +42,7 @@ public class City {
 	 *            the letter to send
 	 */
 	public void sendLetter(Letter<?> letter) {
-
+		this.postbox.add(letter);
 	}
 
 	/**

@@ -11,5 +11,10 @@ package Content;
  *
  */
 public interface Content {
+	/**
+	 * Get the description of the content
+	 * 
+	 * @return return a string
+	 */
 	public String getDescription();
 }

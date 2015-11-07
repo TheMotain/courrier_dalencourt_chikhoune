@@ -17,7 +17,7 @@ public abstract class Letter<C extends Content> {
 	/**
 	 * Cost of the letter
 	 */
-	protected int cost;
+	protected float cost;
 	/**
 	 * Content of the letter
 	 */
@@ -53,7 +53,7 @@ public abstract class Letter<C extends Content> {
 	 * 
 	 * @return return the cost
 	 */
-	public abstract int getCost();
+	public abstract float getCost();
 
 	/**
 	 * Do the action to receive a letter

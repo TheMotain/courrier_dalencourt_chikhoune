@@ -26,7 +26,7 @@ public class CityTest {
 	
 	@Test
 	public void test_sendLetter(){
-		Assert.assertTrue(false);
+		Assert.assertFalse(true);
 	}
 	
 	@Test

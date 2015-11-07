@@ -58,7 +58,7 @@ public class Inhabitant {
 	 *            the letter to receive
 	 */
 	public void receiveLetter(Letter<?> letter) {
-
+		letter.receiveLetter();
 	}
 
 	/**
