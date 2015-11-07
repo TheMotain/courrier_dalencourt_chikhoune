@@ -1,0 +1,22 @@
+Pour commencer il te faut un compte GitHub (https://github.com)
+Une fois ton compte créer envois moi ton nom d'utilisateur pour que je te rajoute au projet
+assure toi d'avoir git d'installé sur ton ordinateur
+
+Les commandes utiles:
+
+git clone https://github.com/TheMotain/courrier_dalencourt_chikhoune.git
+-> Permet de télécharger l'ensemble du projet. A utiliser uniquement la première fois
+
+git add .
+-> à utiliser à la racine de ton projet pour notifier tes changements avant sauvegarde
+
+git commit -m "message"
+-> à utiliser pour sauvegarder tes changements.
+
+git push
+-> permet d'envoyer les changements après un commit sur le site github
+
+git pull
+-> permet de télécharger tous les changements du site github
+
+demande moi pour avoir d'autres commandes si tu as un problème
