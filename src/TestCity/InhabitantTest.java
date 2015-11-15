@@ -9,6 +9,9 @@ import org.junit.Test;
 
 import City.City;
 import City.Inhabitant;
+import Content.TextContent;
+import Letters.Letter;
+import Letters.SimpleLetter;
 
 /**
  * Tests for Inhabitant
@@ -28,16 +31,6 @@ public class InhabitantTest {
 	}
 	
 	@Test
-	public void test_sendLetter(){
-		Assert.assertTrue(false);
-	}
-	
-	@Test
-	public void test_receiveLetter(){
-		Assert.assertTrue(false);
-	}
-	
-	@Test
 	public void test_createInhabitant(){
 		Assert.assertEquals(this.city, this.inhabitant.getCity());
 		Assert.assertEquals("Iron Man", this.inhabitant.getName());
@@ -48,17 +41,26 @@ public class InhabitantTest {
 	public void test_withdraw(){
 		int amount = 50;
 		this.inhabitant.credit(amount);
-		Assert.assertEquals(amount, this.inhabitant.getBalence());
+		Assert.assertEquals(amount, this.inhabitant.getBalence(),0);
 		amount /= 2;
 		this.inhabitant.withdraw(amount);
-		Assert.assertEquals(amount, this.inhabitant.getBalence());
+		Assert.assertEquals(amount, this.inhabitant.getBalence(),0);
 	}
 	
 	@Test
 	public void test_credit(){
 		int amount = 50;
-		Assert.assertEquals(0, this.inhabitant.getBalence());
+		Assert.assertEquals(0, this.inhabitant.getBalence(),0);
 		this.inhabitant.credit(amount);
-		Assert.assertEquals(amount, this.inhabitant.getBalence());
+		Assert.assertEquals(amount, this.inhabitant.getBalence(),0);
+	}
+	
+	@Test
+	public void test_sendLetter(){
+		this.inhabitant.credit(20);
+		Letter<?> letter = new SimpleLetter(this.inhabitant, this.inhabitant, new TextContent("Hello"));
+		float balance = this.inhabitant.getBalence() - letter.getCost();
+		this.inhabitant.sendLetter(letter);
+		Assert.assertEquals(balance, this.inhabitant.getBalence(),0);
 	}
 }

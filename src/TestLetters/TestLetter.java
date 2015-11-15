@@ -11,13 +11,14 @@ import City.City;
 import City.Inhabitant;
 import Content.Content;
 import Letters.Letter;
+import TestContent.TestContent;
 
 /**
  * @author Alex Dalencourt
  * @author Sellenia Chikhoune
  *
  */
-public abstract class TestLetter<C extends Content> {
+public abstract class TestLetter<C extends Content> implements TestContent{
 	protected Letter<C> letter;
 	protected Inhabitant sender;
 	protected Inhabitant receiver;
@@ -41,7 +42,12 @@ public abstract class TestLetter<C extends Content> {
 	public abstract void test_getContent();
 	
 	@Test
-	public abstract void test_receiveLetter();
+	public abstract void test_getType();
+	
+	@Test
+	public void test_receiveLetter(){
+		
+	}
 	
 	@Test
 	public void test_getReceiver(){
@@ -51,5 +57,13 @@ public abstract class TestLetter<C extends Content> {
 	@Test
 	public void test_getSender(){
 		Assert.assertEquals(this.sender, this.letter.getSender());
+	}
+	
+	@Test
+	public abstract void test_doAction();
+
+	@Test
+	public void test_getDescription() {
+		Assert.assertEquals("This is a letter content", this.letter.getDescription());
 	}
 }

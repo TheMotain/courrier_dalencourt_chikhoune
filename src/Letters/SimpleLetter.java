@@ -39,15 +39,27 @@ public class SimpleLetter extends Letter<TextContent> {
 		return 1;
 	}
 
-	/**
-	 * Receive a letter and read it
-	 * 
-	 * @see Letters.Letter#receiveLetter()
+	/* (non-Javadoc)
+	 * @see Letters.Letter#getType()
 	 */
 	@Override
-	public void receiveLetter() {
-		// TODO Auto-generated method stub
-
+	public String getType() {
+		return "a simple letter";
 	}
 
+	/* (non-Javadoc)
+	 * @see Letters.Letter#getStringContent()
+	 */
+	@Override
+	public String getStringContent() {
+		return "a text content ("+this.content.getMessage()+")";
+	}
+
+	/**
+	 * do nothing for a simple letter
+	 * 
+	 * @see Letters.Letter#doAction()
+	 */
+	@Override
+	public void doAction() {}
 }

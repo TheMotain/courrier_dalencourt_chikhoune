@@ -4,6 +4,7 @@
 package City;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import Letters.Letter;
 
@@ -18,7 +19,7 @@ public class City {
 	/**
 	 * The post box which contains all letters to send
 	 */
-	private ArrayList<Letter<?>> postbox;
+	private List<Letter<?>> postbox;
 	/**
 	 * Name of the city
 	 */
@@ -49,7 +50,13 @@ public class City {
 	 * Distribute all letters
 	 */
 	public void distributeLetters() {
-
+		List<Letter<?>> bag = new ArrayList<Letter<?>>(this.postbox);
+		Letter<?> tmp;
+		this.postbox.clear();
+		while(!bag.isEmpty()){
+			tmp = bag.remove(0);
+			tmp.getReceiver().receiveLetter(tmp);
+		}
 	}
 
 	/**
@@ -57,7 +64,7 @@ public class City {
 	 * 
 	 * @return return a array of letter
 	 */
-	public ArrayList<Letter<?>> getPostbox() {
+	public List<Letter<?>> getPostbox() {
 		return this.postbox;
 	}
 }

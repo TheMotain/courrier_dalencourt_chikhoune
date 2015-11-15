@@ -35,7 +35,13 @@ public class TestSimpleLetter extends TestLetter<TextContent>{
 	}
 
 	@Override
-	public void test_receiveLetter() {
-		Assert.assertTrue(false);
+	public void test_doAction() {
+		this.letter.doAction();
+		Assert.assertTrue(true);
+	}
+
+	@Override
+	public void test_getType() {
+		Assert.assertEquals("a simple letter", this.letter.getType());
 	}
 }

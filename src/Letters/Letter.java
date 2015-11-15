@@ -13,7 +13,8 @@ import Content.Content;
  * @author Sellenia Chikhoune
  *
  */
-public abstract class Letter<C extends Content> {
+public abstract class Letter<C extends Content> implements Content{
+
 	/**
 	 * Cost of the letter
 	 */
@@ -56,9 +57,17 @@ public abstract class Letter<C extends Content> {
 	public abstract float getCost();
 
 	/**
-	 * Do the action to receive a letter
+	 * Open the letter
 	 */
-	public abstract void receiveLetter();
+	public void receiveLetter(){
+		System.out.println("<- " + this.getReceiver().getName() + " receive " + this.getType() + " whose content is " + this.getStringContent() + " from " + this.getSender().getName());
+		this.doAction();
+	}
+	
+	/**
+	 * Do the action with the content of the letter
+	 */
+	public abstract void doAction();
 
 	/**
 	 * Get the content of the letter
@@ -85,5 +94,28 @@ public abstract class Letter<C extends Content> {
 	 */
 	public Inhabitant getReceiver() {
 		return this.receiver;
+	}
+	
+	/**
+	 * Get the type of the letter
+	 * @return
+	 * return a string
+	 */
+	public abstract String getType();
+
+	/**
+	 * Get a string witch contains the content of the letter
+	 * @return
+	 * Return a String
+	 */
+	public abstract String getStringContent();
+	
+	/* (non-Javadoc)
+	 * @see Content.Content#getDescription()
+	 */
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return "This is a letter content";
 	}
 }

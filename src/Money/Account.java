@@ -26,21 +26,21 @@ public class Account {
 	/**
 	 * To debit a account
 	 * 
-	 * @param amount
+	 * @param f
 	 *            the amount to debit
 	 */
-	public void withdraw(int amount) {
-		this.balance -= amount;
+	public void withdraw(float f) {
+		this.balance -= f;
 	}
 
 	/**
 	 * To credit a account
 	 * 
-	 * @param amount
+	 * @param f
 	 *            amount to credit
 	 */
-	public void credit(int amount) {
-		this.balance += amount;
+	public void credit(float f) {
+		this.balance += f;
 	}
 
 	/**

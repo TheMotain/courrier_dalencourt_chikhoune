@@ -42,6 +42,23 @@ public class Inhabitant {
 	}
 
 	/**
+	 * Standard Constructor with credit account
+	 * 
+	 * @param city
+	 *            the city of the inhabitant
+	 * @param name
+	 *            the name of the inhabitant
+	 * @param balance
+	 *            the account balance of the inhabitant
+	 */
+	public Inhabitant(City city, String name, float balance) {
+		this.name = name;
+		this.city = city;
+		this.account = new Account();
+		this.account.credit(balance);
+	}
+
+	/**
 	 * Send a letter
 	 * 
 	 * @param letter
@@ -49,6 +66,12 @@ public class Inhabitant {
 	 */
 	public void sendLetter(Letter<?> letter) {
 		this.city.sendLetter(letter);
+		this.account.withdraw(letter.getCost());
+		System.out.println(
+				"-> " + this.getName() + " mails " + letter.getType() + " whose content is " + letter.getStringContent()
+						+ " to " + letter.getReceiver().getName() + " for a cost of " + letter.getCost() + " euros");
+		System.out.println("   - " + letter.getCost() + " are debited from " + this.getName()
+				+ " account whose balance is now " + this.getBalence() + " euros");
 	}
 
 	/**
@@ -84,27 +107,27 @@ public class Inhabitant {
 	 * 
 	 * @return the balance
 	 */
-	public int getBalence() {
+	public float getBalence() {
 		return this.account.getBalance();
 	}
 
 	/**
 	 * Withdraw the amount value to the account
 	 * 
-	 * @param amount
+	 * @param f
 	 *            the amount to withdraw
 	 */
-	public void withdraw(int amount) {
-		this.account.withdraw(amount);
+	public void withdraw(float f) {
+		this.account.withdraw(f);
 	}
 
 	/**
 	 * Credit the amount value to the account
 	 * 
-	 * @param amount
+	 * @param f
 	 *            the amount to credit
 	 */
-	public void credit(int amount) {
-		this.account.credit(amount);
+	public void credit(float f) {
+		this.account.credit(f);
 	}
 }
