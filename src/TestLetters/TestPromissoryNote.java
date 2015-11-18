@@ -41,7 +41,9 @@ public class TestPromissoryNote extends TestLetter<MoneyContent> {
 		float receiverBalance = this.receiver.getBalence();
 		this.letter.doAction();
 		Assert.assertEquals(senderBalance - this.moneyContent.getAmount(), this.sender.getBalence(),0);
+		Assert.assertEquals(1, this.receiver.receiveLetter);
 		Assert.assertEquals(receiverBalance + this.moneyContent.getAmount() - 1, this.receiver.getBalence(),0);
+		Assert.assertEquals(1, this.receiver.sendLetter);
 	}
 
 	@Override

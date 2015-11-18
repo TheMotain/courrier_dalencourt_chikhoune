@@ -5,7 +5,6 @@ package Letters;
 
 import City.Inhabitant;
 import Content.MoneyContent;
-import Letters.Letter.DecoratedLetter;
 
 /**
  * Describe a promissory note. The promissory note can be decorate.
@@ -14,7 +13,7 @@ import Letters.Letter.DecoratedLetter;
  * @author Sellenia Chikhoune
  *
  */
-public class PromissoryNote extends Letter<MoneyContent> implements DecoratedLetter{
+public class PromissoryNote extends Letter<MoneyContent>{
 
 	/**
 	 * Standard Constructor
@@ -69,11 +68,6 @@ public class PromissoryNote extends Letter<MoneyContent> implements DecoratedLet
 		this.receiver.credit(this.content.getAmount());
 		System.out.println("   + " + this.getReceiver().getName() + " account is credited with " + this.getContent().getAmount() + " euros, its balance is now " + this.receiver.getBalence() + " euros");
 		this.receiver.sendLetter(new ThankLetter(this.receiver, this.sender, this.getContent().getAmount()));
-	}
-
-	@Override
-	public String getDecoratedLetterType() {
-		return "a promissory note";
 	}
 
 }

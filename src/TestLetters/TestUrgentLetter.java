@@ -58,6 +58,7 @@ public class TestUrgentLetter extends TestOptionLetter {
 	public void test_doAction() {
 		this.letter.doAction();
 		Assert.assertTrue(true);
+		Assert.assertEquals(1, this.receiver.receiveLetter);
 	}
 
 }

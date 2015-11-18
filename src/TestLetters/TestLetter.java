@@ -19,16 +19,38 @@ import TestContent.TestContent;
  *
  */
 public abstract class TestLetter<C extends Content> implements TestContent{
+	protected class InhabitantForTest extends Inhabitant{
+		public int sendLetter = 0;
+		public int receiveLetter = 0;
+		
+		public InhabitantForTest(City city, String name) {
+			super(city, name);
+		}
+
+		@Override
+		public void sendLetter(Letter<?> letter) {
+			super.sendLetter(letter);
+			this.sendLetter++;
+		}
+
+		@Override
+		public void receiveLetter(Letter<?> letter) {
+			super.receiveLetter(letter);
+			this.receiveLetter++;
+		}
+		
+	}
+	
 	protected Letter<C> letter;
-	protected Inhabitant sender;
-	protected Inhabitant receiver;
+	protected InhabitantForTest sender;
+	protected InhabitantForTest receiver;
 	
 	@Before
 	public void createTestLetter(){
 		City city = new City("New York");
-		this.sender = new Inhabitant(city,"Hulk");
+		this.sender = new InhabitantForTest(city,"Hulk");
 		this.sender.credit(50);
-		this.receiver = new Inhabitant(city,"Thor");
+		this.receiver = new InhabitantForTest(city,"Thor");
 		this.receiver.credit(50);
 		this.letter = getLetter();
 	}

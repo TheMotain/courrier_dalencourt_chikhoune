@@ -19,26 +19,10 @@ import Letters.SimpleLetter;
  *
  */
 public class TestRegisteredLetter extends TestOptionLetter {
-	class Receiver extends Inhabitant{
-		public int numberOfLetterSent;
-		
-		public Receiver(Inhabitant inhabitant) {
-			super(inhabitant.getCity(), inhabitant.getName());
-			this.numberOfLetterSent = 0;
-		}
-
-		@Override
-		public void sendLetter(Letter<?> letter) {
-			this.numberOfLetterSent++;
-			super.sendLetter(letter);
-		}
-	}
-	
 	private Letter<?> content;
 	
 	@Override
 	protected Letter<Letter<?>> getLetter() {
-		this.receiver = new Receiver(this.receiver);
 		this.content = new SimpleLetter(this.sender,this.receiver, new TextContent("Marvel"));
 		return new RegisteredLetter(this.content);
 	}
@@ -63,8 +47,8 @@ public class TestRegisteredLetter extends TestOptionLetter {
 	 */
 	@Override
 	public void test_doAction() {
-		Assert.assertEquals(0, ((Receiver)this.receiver).numberOfLetterSent);
+		Assert.assertEquals(0, this.receiver.sendLetter);
 		this.letter.doAction();
-		Assert.assertEquals(1, ((Receiver)this.receiver).numberOfLetterSent);
+		Assert.assertEquals(1, this.receiver.sendLetter);
 	}
 }

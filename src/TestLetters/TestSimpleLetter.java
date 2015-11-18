@@ -38,6 +38,7 @@ public class TestSimpleLetter extends TestLetter<TextContent>{
 	public void test_doAction() {
 		this.letter.doAction();
 		Assert.assertTrue(true);
+		Assert.assertEquals(1, this.receiver.receiveLetter);
 	}
 
 	@Override

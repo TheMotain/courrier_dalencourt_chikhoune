@@ -14,10 +14,6 @@ import Content.Content;
  *
  */
 public abstract class Letter<C extends Content> implements Content{
-
-	public interface DecoratedLetter{
-		public String getDecoratedLetterType();
-	}
 	
 	/**
 	 * Cost of the letter

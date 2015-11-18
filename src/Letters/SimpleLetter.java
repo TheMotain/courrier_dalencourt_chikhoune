@@ -5,7 +5,6 @@ package Letters;
 
 import City.Inhabitant;
 import Content.TextContent;
-import Letters.Letter.DecoratedLetter;
 
 /**
  * Describe a simple letter. A simple letter can be decorate.
@@ -14,7 +13,7 @@ import Letters.Letter.DecoratedLetter;
  * @author Sellenia Chikhoune
  *
  */
-public class SimpleLetter extends Letter<TextContent> implements DecoratedLetter{
+public class SimpleLetter extends Letter<TextContent>{
 
 	/**
 	 * Standard Constructor
@@ -64,8 +63,4 @@ public class SimpleLetter extends Letter<TextContent> implements DecoratedLetter
 	@Override
 	public void doAction() {}
 
-	@Override
-	public String getDecoratedLetterType() {
-		return "a simple letter";
-	}
 }
