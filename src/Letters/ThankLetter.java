@@ -7,31 +7,36 @@ import City.Inhabitant;
 import Content.TextContent;
 
 /**
+ * Describe a thank letter
+ * 
  * @author Alex Dalencourt
  * @author Sellenia Chikhoune
- *
+ * 
  */
 public class ThankLetter extends SimpleLetter {
 	/**
 	 * the message to send with a thank letter
 	 */
 	public final static String message = "Thank for a promissory note letter whose content is a money content";
-	
+
 	/**
-	 * Standard constructor
-	 * the amount receive in the promissory note
+	 * Standard constructor the amount receive in the promissory note
+	 * 
 	 * @param sender
-	 * the sender of the thank letter
+	 *            the sender of the thank letter
 	 * @param receiver
-	 * the receiver of the thank letter
+	 *            the receiver of the thank letter
 	 * @param amount
-	 * the amount to thank
+	 *            the amount to thank
 	 */
-	public ThankLetter(Inhabitant sender, Inhabitant receiver,float amount) {
-		super(sender, receiver, new TextContent(ThankLetter.message+" ("+amount+")"));
+	public ThankLetter(Inhabitant sender, Inhabitant receiver, float amount) {
+		super(sender, receiver, new TextContent(ThankLetter.message + " ("
+				+ amount + ")"));
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Letters.SimpleLetter#getType()
 	 */
 	@Override

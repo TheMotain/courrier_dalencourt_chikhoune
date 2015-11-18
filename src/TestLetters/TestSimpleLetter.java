@@ -11,13 +11,14 @@ import Letters.SimpleLetter;
 
 /**
  * Tests of SimpleLetter class
+ * 
  * @author Alex Dalencourt
  * @author Sellenia Chikhoune
- *
+ * 
  */
-public class TestSimpleLetter extends TestLetter<TextContent>{
+public class TestSimpleLetter extends TestLetter<TextContent> {
 	protected TextContent content;
-	
+
 	@Override
 	protected Letter<TextContent> getLetter() {
 		this.content = new TextContent("Hello World !");
@@ -26,7 +27,7 @@ public class TestSimpleLetter extends TestLetter<TextContent>{
 
 	@Override
 	public void test_getCost() {
-		Assert.assertEquals(1, this.letter.getCost(),0);
+		Assert.assertEquals(1, this.letter.getCost(), 0);
 	}
 
 	@Override
@@ -38,7 +39,6 @@ public class TestSimpleLetter extends TestLetter<TextContent>{
 	public void test_doAction() {
 		this.letter.doAction();
 		Assert.assertTrue(true);
-		Assert.assertEquals(1, this.receiver.receiveLetter);
 	}
 
 	@Override

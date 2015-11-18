@@ -8,7 +8,7 @@ package Content;
  * 
  * @author Alex Dalencourt
  * @author Sellenia Chikhoune
- *
+ * 
  */
 public interface Content {
 	/**

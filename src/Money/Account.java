@@ -8,13 +8,13 @@ package Money;
  * 
  * @author Alex Dalencourt
  * @author Sellenia Chikhoune
- *
+ * 
  */
 public class Account {
 	/**
 	 * Contains the balance of the Account
 	 */
-	private int balance;
+	private float balance;
 
 	/**
 	 * Standard constructor
@@ -48,7 +48,7 @@ public class Account {
 	 * 
 	 * @return return the balance
 	 */
-	public int getBalance() {
+	public float getBalance() {
 		return this.balance;
 	}
 }

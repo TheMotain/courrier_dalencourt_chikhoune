@@ -11,9 +11,9 @@ import Content.MoneyContent;
  * 
  * @author Alex Dalencourt
  * @author Sellenia Chikhoune
- *
+ * 
  */
-public class PromissoryNote extends Letter<MoneyContent>{
+public class PromissoryNote extends Letter<MoneyContent> {
 
 	/**
 	 * Standard Constructor
@@ -25,7 +25,8 @@ public class PromissoryNote extends Letter<MoneyContent>{
 	 * @param content
 	 *            the content
 	 */
-	public PromissoryNote(Inhabitant sender, Inhabitant receiver, MoneyContent content) {
+	public PromissoryNote(Inhabitant sender, Inhabitant receiver,
+			MoneyContent content) {
 		super(sender, receiver, content);
 	}
 
@@ -49,7 +50,9 @@ public class PromissoryNote extends Letter<MoneyContent>{
 		return "a promissory note letter";
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Letters.Letter#getStringContent()
 	 */
 	@Override
@@ -59,15 +62,23 @@ public class PromissoryNote extends Letter<MoneyContent>{
 
 	/**
 	 * Do the action for the letter content and send a thank letter
+	 * 
 	 * @see Letters.Letter#doAction()
 	 */
 	@Override
 	public void doAction() {
 		this.sender.withdraw(this.content.getAmount());
-		System.out.println("   - " + this.getContent().getAmount() + " euros is debited from " + this.getSender().getName() + " account whose balance is now " + this.sender.getBalence() + " euros");
+		System.out.println("   - " + this.getContent().getAmount()
+				+ " euros is debited from " + this.getSender().getName()
+				+ " account whose balance is now " + this.sender.getBalence()
+				+ " euros");
 		this.receiver.credit(this.content.getAmount());
-		System.out.println("   + " + this.getReceiver().getName() + " account is credited with " + this.getContent().getAmount() + " euros, its balance is now " + this.receiver.getBalence() + " euros");
-		this.receiver.sendLetter(new ThankLetter(this.receiver, this.sender, this.getContent().getAmount()));
+		System.out.println("   + " + this.getReceiver().getName()
+				+ " account is credited with " + this.getContent().getAmount()
+				+ " euros, its balance is now " + this.receiver.getBalence()
+				+ " euros");
+		this.receiver.sendLetter(new ThankLetter(this.receiver, this.sender,
+				this.getContent().getAmount()));
 	}
 
 }

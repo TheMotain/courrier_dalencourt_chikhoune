@@ -14,18 +14,20 @@ import Content.TextContent;
  * 
  * @author Alex Dalencourt
  * @author Sellenia Chikhoune
- *
+ * 
  */
 public class TestTextContent implements TestContent {
 	private TextContent textContent;
 	private String message = "Hello World !";
-	
+
 	@Before
-	public void createTextContent(){
+	public void createTextContent() {
 		this.textContent = new TextContent(this.message);
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see TestContent.TestContent#test_getDescription()
 	 */
 	@Override
@@ -33,9 +35,9 @@ public class TestTextContent implements TestContent {
 	public void test_getDescription() {
 		Assert.assertEquals(this.message, this.textContent.getDescription());
 	}
-	
+
 	@Test
-	public void test_getMessage(){
+	public void test_getMessage() {
 		Assert.assertEquals(this.message, this.textContent.getMessage());
 	}
 }

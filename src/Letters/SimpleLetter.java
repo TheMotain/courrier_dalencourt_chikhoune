@@ -11,9 +11,9 @@ import Content.TextContent;
  * 
  * @author Alex Dalencourt
  * @author Sellenia Chikhoune
- *
+ * 
  */
-public class SimpleLetter extends Letter<TextContent>{
+public class SimpleLetter extends Letter<TextContent> {
 
 	/**
 	 * Standard Constructor
@@ -25,7 +25,8 @@ public class SimpleLetter extends Letter<TextContent>{
 	 * @param content
 	 *            the content
 	 */
-	public SimpleLetter(Inhabitant sender, Inhabitant receiver, TextContent content) {
+	public SimpleLetter(Inhabitant sender, Inhabitant receiver,
+			TextContent content) {
 		super(sender, receiver, content);
 	}
 
@@ -39,7 +40,9 @@ public class SimpleLetter extends Letter<TextContent>{
 		return 1;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Letters.Letter#getType()
 	 */
 	@Override
@@ -47,12 +50,14 @@ public class SimpleLetter extends Letter<TextContent>{
 		return "a simple letter";
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Letters.Letter#getStringContent()
 	 */
 	@Override
 	public String getStringContent() {
-		return "a text content ("+this.content.getMessage()+")";
+		return "a text content (" + this.content.getMessage() + ")";
 	}
 
 	/**
@@ -61,6 +66,7 @@ public class SimpleLetter extends Letter<TextContent>{
 	 * @see Letters.Letter#doAction()
 	 */
 	@Override
-	public void doAction() {}
+	public void doAction() {
+	}
 
 }

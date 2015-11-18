@@ -8,7 +8,7 @@ package Letters;
  * 
  * @author Alex Dalencourt
  * @author Sellenia Chikhoune
- *
+ * 
  */
 public class RegisteredLetter extends OptionLetter {
 
@@ -42,7 +42,8 @@ public class RegisteredLetter extends OptionLetter {
 	@Override
 	public void doAction() {
 		this.content.doAction();
-		this.receiver.sendLetter(new AcknowledgmentOfReceipt(this.receiver, this.sender, content));
+		this.receiver.sendLetter(new AcknowledgmentOfReceipt(this.receiver,
+				this.sender, content));
 	}
 
 	/*
@@ -53,16 +54,6 @@ public class RegisteredLetter extends OptionLetter {
 	@Override
 	public String getType() {
 		return "a registered letter";
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see Letters.Letter#getStringContent()
-	 */
-	@Override
-	public String getStringContent() {
-		return this.content.getType() + " whose content is " + this.content.getStringContent();
 	}
 
 }

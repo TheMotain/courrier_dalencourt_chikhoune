@@ -11,7 +11,7 @@ import Content.TextContent;
  * 
  * @author Alex Dalencourt
  * @author Sellenia Chikhoune
- *
+ * 
  */
 public class AcknowledgmentOfReceipt extends SimpleLetter {
 	/**
@@ -29,9 +29,11 @@ public class AcknowledgmentOfReceipt extends SimpleLetter {
 	 * @param content
 	 *            the content of the registered letter
 	 */
-	public AcknowledgmentOfReceipt(Inhabitant sender, Inhabitant receiver, Letter<?> content) {
-		super(sender, receiver, new TextContent(AcknowledgmentOfReceipt.message + content.getType()
-				+ " whose content is " + content.getStringContent()));
+	public AcknowledgmentOfReceipt(Inhabitant sender, Inhabitant receiver,
+			Letter<?> content) {
+		super(sender, receiver, new TextContent(AcknowledgmentOfReceipt.message
+				+ content.getType() + " whose content is "
+				+ content.getStringContent()));
 	}
 
 	/*

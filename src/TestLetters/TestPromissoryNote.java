@@ -14,7 +14,7 @@ import Letters.PromissoryNote;
  * 
  * @author Alex Dalencourt
  * @author Sellenia Chikhoune
- *
+ * 
  */
 public class TestPromissoryNote extends TestLetter<MoneyContent> {
 	private MoneyContent moneyContent;
@@ -27,7 +27,8 @@ public class TestPromissoryNote extends TestLetter<MoneyContent> {
 
 	@Override
 	public void test_getCost() {
-		Assert.assertEquals(1 + this.moneyContent.getAmount() * 0.01, this.letter.getCost(), 0);
+		Assert.assertEquals(1 + this.moneyContent.getAmount() * 0.01,
+				this.letter.getCost(), 0);
 	}
 
 	@Override
@@ -40,9 +41,11 @@ public class TestPromissoryNote extends TestLetter<MoneyContent> {
 		float senderBalance = this.sender.getBalence();
 		float receiverBalance = this.receiver.getBalence();
 		this.letter.doAction();
-		Assert.assertEquals(senderBalance - this.moneyContent.getAmount(), this.sender.getBalence(),0);
-		Assert.assertEquals(1, this.receiver.receiveLetter);
-		Assert.assertEquals(receiverBalance + this.moneyContent.getAmount() - 1, this.receiver.getBalence(),0);
+		Assert.assertEquals(senderBalance - this.moneyContent.getAmount(),
+				this.sender.getBalence(), 0);
+		Assert.assertEquals(
+				receiverBalance + this.moneyContent.getAmount() - 1,
+				this.receiver.getBalence(), 0);
 		Assert.assertEquals(1, this.receiver.sendLetter);
 	}
 

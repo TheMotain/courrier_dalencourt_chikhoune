@@ -11,10 +11,10 @@ import Content.Content;
  * 
  * @author Alex Dalencourt
  * @author Sellenia Chikhoune
- *
+ * 
  */
-public abstract class Letter<C extends Content> implements Content{
-	
+public abstract class Letter<C extends Content> implements Content {
+
 	/**
 	 * Cost of the letter
 	 */
@@ -59,11 +59,14 @@ public abstract class Letter<C extends Content> implements Content{
 	/**
 	 * Open the letter
 	 */
-	public void receiveLetter(){
-		System.out.println("<- " + this.getReceiver().getName() + " receive " + this.getType() + " whose content is " + this.getStringContent() + " from " + this.getSender().getName());
+	public void receiveLetter() {
+		System.out.println("<- " + this.getReceiver().getName() + " receive "
+				+ this.getType() + " whose content is "
+				+ this.getStringContent() + " from "
+				+ this.getSender().getName());
 		this.doAction();
 	}
-	
+
 	/**
 	 * Do the action with the content of the letter
 	 */
@@ -95,22 +98,24 @@ public abstract class Letter<C extends Content> implements Content{
 	public Inhabitant getReceiver() {
 		return this.receiver;
 	}
-	
+
 	/**
 	 * Get the type of the letter
-	 * @return
-	 * return a string
+	 * 
+	 * @return return a string
 	 */
 	public abstract String getType();
 
 	/**
 	 * Get a string witch contains the content of the letter
-	 * @return
-	 * Return a String
+	 * 
+	 * @return Return a String
 	 */
 	public abstract String getStringContent();
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Content.Content#getDescription()
 	 */
 	@Override

@@ -14,31 +14,31 @@ import Money.Account;
  * 
  * @author Alex Dalencourt
  * @author Sellenia Chikhoune
- *
+ * 
  */
 public class AccountTest {
 	private Account account;
-	
+
 	@Before
-	public void createAccount(){
+	public void createAccount() {
 		this.account = new Account();
 	}
-	
+
 	@Test
-	public void test_1_credit(){
+	public void test_1_credit() {
 		int amount = 50;
-		Assert.assertEquals(0, this.account.getBalance());
+		Assert.assertEquals(0, this.account.getBalance(),0);
 		this.account.credit(amount);
-		Assert.assertEquals(amount, this.account.getBalance());
+		Assert.assertEquals(amount, this.account.getBalance(),0);
 	}
-	
+
 	@Test
-	public void test_2_withdraw(){
+	public void test_2_withdraw() {
 		int amount = 50;
 		this.account.credit(amount);
-		Assert.assertEquals(amount, this.account.getBalance());
+		Assert.assertEquals(amount, this.account.getBalance(),0);
 		amount /= 2;
 		this.account.withdraw(amount);
-		Assert.assertEquals(amount, this.account.getBalance());
+		Assert.assertEquals(amount, this.account.getBalance(),0);
 	}
 }

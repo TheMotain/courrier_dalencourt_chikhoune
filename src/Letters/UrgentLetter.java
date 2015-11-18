@@ -8,7 +8,7 @@ package Letters;
  * 
  * @author Alex Dalencourt
  * @author Sellenia Chikhoune
- *
+ * 
  */
 public class UrgentLetter extends OptionLetter {
 
@@ -51,15 +51,5 @@ public class UrgentLetter extends OptionLetter {
 	@Override
 	public String getType() {
 		return "a urgent letter";
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see Letters.Letter#getStringContent()
-	 */
-	@Override
-	public String getStringContent() {
-		return this.content.getType() + " whose content is " + this.content.getStringContent();
 	}
 }

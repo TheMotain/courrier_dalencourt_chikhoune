@@ -13,7 +13,7 @@ import Letters.Letter;
  * 
  * @author Alex Dalencourt
  * @author Sellenia Chikhoune
- *
+ * 
  */
 public class City {
 	/**
@@ -53,7 +53,7 @@ public class City {
 		List<Letter<?>> bag = new ArrayList<Letter<?>>(this.postbox);
 		Letter<?> tmp;
 		this.postbox.clear();
-		while(!bag.isEmpty()){
+		while (!bag.isEmpty()) {
 			tmp = bag.remove(0);
 			tmp.getReceiver().receiveLetter(tmp);
 		}

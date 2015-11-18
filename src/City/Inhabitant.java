@@ -11,7 +11,7 @@ import Money.Account;
  * 
  * @author Alex Dalencourt
  * @author Sellenia Chikhoune
- *
+ * 
  */
 public class Inhabitant {
 	/**
@@ -67,11 +67,14 @@ public class Inhabitant {
 	public void sendLetter(Letter<?> letter) {
 		this.city.sendLetter(letter);
 		this.account.withdraw(letter.getCost());
-		System.out.println(
-				"-> " + this.getName() + " mails " + letter.getType() + " whose content is " + letter.getStringContent()
-						+ " to " + letter.getReceiver().getName() + " for a cost of " + letter.getCost() + " euros");
-		System.out.println("   - " + letter.getCost() + " are debited from " + this.getName()
-				+ " account whose balance is now " + this.getBalence() + " euros");
+		System.out.println("-> " + this.getName() + " mails "
+				+ letter.getType() + " whose content is "
+				+ letter.getStringContent() + " to "
+				+ letter.getReceiver().getName() + " for a cost of "
+				+ letter.getCost() + " euros");
+		System.out.println("   - " + letter.getCost() + " are debited from "
+				+ this.getName() + " account whose balance is now "
+				+ this.getBalence() + " euros");
 	}
 
 	/**
