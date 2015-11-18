@@ -1,0 +1,113 @@
+Projet Java COO : Courrier
+Alex Dalencourt
+Sellenia Chikhoune
+Groupe 1
+2015
+
+#------------------------#
+
+1/ Introduction
+
+Le logiciel courrier simule les échanges postaux au sein d'une population de cent habitants pendant vinght jours.
+Le développement de ce programme a été effectué dans le cadre du troisième projet de licence 3 informatique.
+
+#------------------------#
+
+2/ Usage
+
+L'application pourra être exécutée grâce à la commande suivante (modifier le chemin d'accès vers le jar si nécessaire):
+
+	java -jar courrier_dalencourt_chikhoune.jar
+	
+Il existe un Makefile qui permet une compilation manuelle des classes Java. Les commandes sont les suivantes:
+	- make compile -> exécute la compilation de toutes les classes contenues dans le répertoire src
+	- make jar -> crée un jar exécutable du logiiel
+	- make docs -> génère la documantation
+	- make clean -> vide les répertoires bin et doc
+	- make ou make all -> lance toutes les commandes de make successivement
+	- make run -> exécute le jar
+	
+Pour que le Makefile fonctionne correctement il est nécessaire de ne rien changer à l'architecture du répertoire.
+
+La totalité des implémentations demandées dans le cahier des charges ont étés effectuées.
+Le pourcentage de couverture des tests est de 88.9%. La partie qui n'est pas testé est le code contenu dan la méthode main.
+
+#------------------------#
+
+3/ Architecture
+
+Le projet est divisé en package regroupant les classes par objectif.
+L'architecture est la suivante :
+
+src
+ |_City
+ |_Content
+ |_Letters
+ |_Money
+ |_TestCity
+ |_TestContent
+ |_TestLetters
+ |_TestMoney
+
+Les différents polymorphismes sont les suivants:
+
+Content.java :
+Cette interface permet de définir tout entitée l'implémentant comme étant le contenu d'une lettre.
+On retrouve ainsi trois types de contenu: TextContent.java, MoneyContent.java, Letter.java.
+
+Letter.java :
+Cette classe abstraite définie une lettre en général. Elle contient l'ensemble des methode (abstraites ou non
+necessaire à tout type de lettre). Chaque lettre contient un objet implémentant Content afin de sauvegarder le contenu
+d'une lettre. Comme Letter implémente Content, une lettre peut donc en contenir une autre.
+Les classes héritants de Letter sont PromissoryNote.java, SimpleLetter.java, OptionLetter.java, RegisteredLetter.java, UrgentLetter.java,
+AcknowledgmentOfReceipt.java et ThankLetter.java
+
+OptionLetter.java :
+Cette dernière classe abstraite définie une lettre avec option. C'est à dire une lettre dont le contenu est une autre lettre et dont l'action
+à effectuer à la réception de la lettre est l'action de la lettre contenu plus l'action de celle qui la décore. Les coûts peuvent êtres modifier
+avec les OptionLetter.
+L'option letter permet d'implémenter le design pattern Decorator
+Les classes héritants de OptionLetter sont: UrgentLetter.java et RegisteredLetter.java
+
+#------------------------#
+
+4/ Code Sample
+
+Création d'une lettre avec un contenu Text ou Money:
+
+public class PromissoryNote extends Letter<MoneyContent> {
+
+  public PromissoryNote(Inhabitant sender, Inhabitant receiver, MoneyContent content) {
+	  super(sender, receiver, content); //appel du constructeur de Letter avec le contenu MoneyContent
+  }
+  [...]
+}
+
+public class SimpleLetter extends Letter<TextContent> {
+
+  public SimpleLetter(Inhabitant sender, Inhabitant receiver, TextContent content) {
+	super(sender, receiver, content); //appel du constructeur de Letter avec le contenu TextContent
+  }
+  [...]
+}
+
+public abstract class Letter<C extends Content> implements Content {
+  [...]
+  public Letter(Inhabitant sender, Inhabitant receiver, C content) {
+	this.content = content;
+	this.sender = sender;
+	this.receiver = receiver;
+	this.cost = this.getCost();
+  }
+}
+
+Afin d'utiliser le design patter decorator il est nécessaire d'implémenter OptionLetter en faisant
+appel à son constructeur:
+
+public abstract class OptionLetter extends Letter<Letter<?>> {
+
+  public OptionLetter(Letter<?> content) { //nécessite une lettre à décorer en paramètre
+	super(content.getSender(), content.getReceiver(), content);
+  }
+  [...]
+}
